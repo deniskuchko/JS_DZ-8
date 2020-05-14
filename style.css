@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #031321;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container1 button, .container2 button{
+    border: none;
+    background: none;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 24px;
+} 
+.container1, .container2{
+    text-align: center;
+}
+a{
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #2196f3;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden ;
+    transition: 0.5s;
+}
+.container1 a:hover, .container2 a:hover{
+    color: #255784;
+    background: #2196f3;
+    box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+    transition-delay: 1s;
+}
+.container2 a:hover{
+    color: #255784;
+    background: #21f360;
+    box-shadow: 0 0 10px #21f360, 0 0 40px #21f360, 0 0 80px #21f360;
+    
+}
+.container1 a span,.container2 a span{
+    position: absolute;
+    display: block;
+}
+.container1 a span:nth-child(1), .container2 a span:nth-child(1){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #2196f3);
+}
+.container2 a span:nth-child(1){
+    background: linear-gradient(90deg, transparent, #21f360);
+}
+.container1 a:hover span:nth-child(1), .container2 a:hover span:nth-child(1){
+    left: 100%;
+    transition: 1s;
+}
+.container1 a span:nth-child(3), .container2 a span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #2196f3);
+}
+.container2 a span:nth-child(3){
+    background: linear-gradient(270deg, transparent, #21f360);
+}
+.container1 a:hover span:nth-child(3), .container2 a:hover span:nth-child(3){
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+.container1 a span:nth-child(2), .container2 a span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #2196f3);
+}
+.container2 a span:nth-child(2){
+    background: linear-gradient(180deg, transparent, #21f360);
+}
+.container1 a:hover span:nth-child(2), .container2 a:hover span:nth-child(2){
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+.container1 a span:nth-child(4), .container2 a span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #2196f3);
+}
+.container2 a span:nth-child(4){
+    background: linear-gradient(360deg, transparent, #21f360);
+}
+.container1 a:hover span:nth-child(4), .container2 a:hover span:nth-child(4){
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+
+.questions{
+    color: white;
+    display: block;
+}
+
