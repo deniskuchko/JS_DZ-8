@@ -9,7 +9,22 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
+    <div>
+        <div class="time_lang">
+            <select id="lang" onchange="showLang(this)">
+                <option value="ru" selected>Русский</option>
+                <option value="en" selected>Английский</option>
+            </select>
+            <select id="time" onchange="showTime(this)" >
+                <option value="ru_time" selected>Часовой пояс ru</option>
+                <option value="en_time" selected>Часовой пояс en</option>
+                    
+            </select>
+                
+        </div> 
+        <div id="vivod_time" ></div> 
+    </div>
+    <div class="main">
         <form action="https://www.google.com/search" method="get" id="search-form">
             <input type="text" name="q" placeholder="Input search" autocomplete="off" autofocus>
             
@@ -27,39 +42,32 @@
                     <h1></h1>
                     <p></p>
                 </div>
-                <!-- <div class="questions">
-                    <h1> Вопрос №2</h1>
-                    <p>Вы мужчина?</p>
+                <div class="container">
+                    <div class="container1">
+                        <a href="#">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <button class="net" type="submit" name="otvet" value="Нет" >Нет</button> 
+                            
+                        </a>
+                    </div>
+                    <div class="container2">
+                        <a href="#">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <button class="da" type="submit" name="otvet" value="Да">Да</button> 
+                        </a>
+                    </div>
                 </div>
-                <div class="questions">
-                    <h1> Вопрос №3</h1>
-                    <p>Есть высшее образование?</p>
-                </div> -->
-            
         </div>
-
-        <div class="container">
-            <div class="container1">
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <button class="net" type="submit" name="otvet" value="Нет" >Нет</button> 
-                    
-                </a>
-            </div>
-            <div class="container2">
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <button class="da" type="submit" name="otvet" value="Да">Да</button> 
-                </a>
-            </div>
-        </div>
+    </div>
+        
     <script src="./script (1).js"></script>
+    <script src="./data.js"></script>
    <!--  <script src="./script1.js"></script> -->
 </body>
 </html>
