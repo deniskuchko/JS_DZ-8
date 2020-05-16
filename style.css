@@ -134,4 +134,7 @@ a{
     color: white;
     display: block;
 }
-
+.questions h1{color:#2196f3}
+.questions p{color:#21f360}
+.container1 button{color: #21f360;}
+.container2 button{color: #2196f3;}

@@ -13,22 +13,41 @@ Date.prototype.format = function(format = 'yyyy-mm-dd') {
     }
     return result;
 };
-dataCreateNew = ((new Date()).format('yyyy/mm/dd hh:MM:ss'));
+var date = new Date();
+
+var options = {
+ 
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  weekday: 'long',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric'
+};
+
+
+dataCreateNewRu = ((new Date()).format('yyyy/mm/dd hh:MM:ss'));
+dataCreateNewEn = date.toLocaleString("en-US", options);
+
+let button = document.createElement('button');
+    button.className = 'time_ru';
+    button.innerHTML = dataCreateNewRu +'    1';
+
 
 function showTime(el){
+    
     console.log(el.options[el.selectedIndex].value);
-    let buttons = document.createElement('button');
-    
-    if(el.options[el.selectedIndex].value == 'Часовой пояс ru'){
-        buttons.className = 'time_ru';
-        buttons.innerHTML = dataCreateNew;
-    } else {
-        buttons.className = 'time_en';
-        buttons.innerHTML = dataCreateNew;
+    button.remove();
+
+    if(el.options[el.selectedIndex].value === 'ru_time'){
+        button.className = 'time_ru';
+        button.innerHTML = dataCreateNewRu;
+    } if(el.options[el.selectedIndex].value === 'en_time') {
+        button.className = 'time_en';
+        button.innerHTML = dataCreateNewEn;
     }
-    console.log(buttons);
-    document.getElementById('vivod_time').append(buttons);
-    
-    for (var i = 0; i < 2; i++)
-    buttons[i].parentNode.removeChild(buttons[i]);
+    document.getElementById('vivod_time').prepend(button);
 } ;
+
+
