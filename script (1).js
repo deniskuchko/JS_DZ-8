@@ -80,7 +80,3 @@ fetch('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+MY_KEY+'&te
         console.log('Status Error');
     }
 )
-
-
-/* привязка к опроснику голосового управления */
-
