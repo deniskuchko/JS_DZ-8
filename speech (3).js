@@ -1,5 +1,5 @@
 /* const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
- */const IS_SPEECH_REC_SUPPORTED = /* false */ !!SpeechRecognition ;
+ */const IS_SPEECH_REC_SUPPORTED = false /* !!SpeechRecognition */ ;
 const QUESTIONS = [
   `Вам больше 20 лет?`,
   `Вы мужчина?`,
@@ -9,13 +9,41 @@ const QUESTIONS = [
   `Больше двух раз  в год бываете за пределами РБ?`,
   `Есть ли пожелания?`
 ];
-const YES_STRING = 'да';
-const NO_STRING = 'нет';
+let YES_STRING = 'да';
+let NO_STRING = 'нет';
+let lang;
+let places;
+let langSpeach;
 const ANSWERS = new Array(QUESTIONS.length).fill('');
 const CARD_WRAPPER = document.querySelector('#card-wrapper');
+let place = document.querySelector("#start-text");
+let words = document.querySelector("#start-text").innerText;
 const speechRecognition = new SpeechRecognition();
 
-speechRecognition.lang = 'ru'
+
+/* Перевод страницы на  голосовые ответы  */
+const MY_KEY = 'trnsl.1.1.20200513T181152Z.4d4e85ca50535b2d.6b5a939dabd11a5f247e618137da5ca57ae3beea';
+
+console.log(words);
+function showLang(el){
+    console.log(el.options[el.selectedIndex].value);
+    
+    if(el.options[el.selectedIndex].value === 'en') {
+        lang = 'ru-en';
+        langSpeach = 'en';
+        YES_STRING = 'yes';
+        NO_STRING = 'no';
+    }
+    else{
+        lang = 'en-ru';
+        langSpeach = 'ru';
+        YES_STRING = 'да';
+        NO_STRING = 'нет';
+    } 
+    speechRecognition.lang = langSpeach;
+    return fetchLang(lang, words, places, place);
+};
+
 
 function speechButtonHandler(index) {
   speechRecognition.start();
@@ -38,8 +66,8 @@ function cardFactory(index) {
   const card = document.createElement('div');
   card.className = 'questions';
   const questionElement = document.createElement('p');
+  questionElement.className = 'questionsNumber';
   questionElement.innerText = QUESTIONS[index];
-
   let answerElement;
 
   if (IS_SPEECH_REC_SUPPORTED) {
@@ -57,8 +85,8 @@ function cardFactory(index) {
     const noButton = document.createElement('button');
     noButton.className = 'net';
 
-    yesButton.innerText = 'YES';
-    noButton.innerText = 'NO';
+    yesButton.innerText = YES_STRING;
+    noButton.innerText = NO_STRING;
     yesButton.addEventListener('click', yesNoButtonHandler.bind(yesButton, index, YES_STRING));
     noButton.addEventListener('click', yesNoButtonHandler.bind(noButton, index, NO_STRING));
 
@@ -101,7 +129,11 @@ function updateCard(currentIndex) {
   const toRender = nextIndex > QUESTIONS.length - 1 ? renderResult() : cardFactory(nextIndex);
 
   CARD_WRAPPER.appendChild(toRender);
+/*   showLang(el);
+  fetchLang(lang, toRender); */
+  
 }
 
 
 updateCard(-1);
+console.log(showLang(el));

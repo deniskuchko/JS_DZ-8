@@ -59,24 +59,3 @@ if(SpeechRecognition){
     console.log('no')
 }
 
-
-const MY_KEY = 'trnsl.1.1.20200513T181152Z.4d4e85ca50535b2d.6b5a939dabd11a5f247e618137da5ca57ae3beea';
-let words = document.querySelector("#start-text").innerText;
-fetch('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+MY_KEY+'&text='+words+'&lang=ru-en')
-.then(
-    response => {
-        /* console.log(response.json()); */
-        response.json().then(
-            data => {
-                console.log(data.text[0]);
-                document.querySelector('#end-text').innerText = data.text[0];
-            }
-        )
-
-    }
-)
-.catch(
-    () => {
-        console.log('Status Error');
-    }
-)

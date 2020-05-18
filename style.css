@@ -40,7 +40,10 @@ p{
     font-size: 24px;
     outline: none;
 } 
-
+.container button{
+    width: 60px;
+    height: 30px;
+}
 .container button:hover,  .questions .say:hover{
     color: #21f360;
     background: #2196f3;

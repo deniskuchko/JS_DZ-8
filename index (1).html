@@ -12,8 +12,11 @@
     <div>
         <div class="time_lang">
             <select id="lang" onchange="showLang(this)">
-                <option value="ru" selected>Русский</option>
-                <option value="en" selected>Английский</option>
+                
+                <option value="ru" >Русский</option>
+                <option value="en" >Английский</option>
+                
+
             </select>
             <select id="time" onchange="showTime(this)" >
                 <option value="ru_time" selected>Часовой пояс ru</option>
@@ -33,9 +36,9 @@
         </form>
 
         
-        <div style="display: block;">
+        <div id="first" style="display: block;">
             <p id="start-text"> Пример HTML-документа на русском</p>
-            <p id="end-text"></p>
+            
         </div>
         
         <div id="opros" >
@@ -49,6 +52,7 @@
     <script src="./script (1).js"></script>
     <script src="./speech (3).js"></script>
     <script src="./data.js"></script>
+    <script src="./showLang.js"></script>
     
     
 
