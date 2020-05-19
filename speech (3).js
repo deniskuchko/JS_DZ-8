@@ -1,5 +1,5 @@
 /* const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
- */const IS_SPEECH_REC_SUPPORTED = false /* !!SpeechRecognition */ ;
+ */const IS_SPEECH_REC_SUPPORTED = /* false */ !!SpeechRecognition ;
 const QUESTIONS = [
   `Вам больше 20 лет?`,
   `Вы мужчина?`,
@@ -21,28 +21,6 @@ let words = document.querySelector("#start-text").innerText;
 const speechRecognition = new SpeechRecognition();
 
 
-/* Перевод страницы на  голосовые ответы  */
-const MY_KEY = 'trnsl.1.1.20200513T181152Z.4d4e85ca50535b2d.6b5a939dabd11a5f247e618137da5ca57ae3beea';
-
-console.log(words);
-function showLang(el){
-    console.log(el.options[el.selectedIndex].value);
-    
-    if(el.options[el.selectedIndex].value === 'en') {
-        lang = 'ru-en';
-        langSpeach = 'en';
-        YES_STRING = 'yes';
-        NO_STRING = 'no';
-    }
-    else{
-        lang = 'en-ru';
-        langSpeach = 'ru';
-        YES_STRING = 'да';
-        NO_STRING = 'нет';
-    } 
-    speechRecognition.lang = langSpeach;
-    return fetchLang(lang, words, places, place);
-};
 
 
 function speechButtonHandler(index) {
@@ -136,4 +114,3 @@ function updateCard(currentIndex) {
 
 
 updateCard(-1);
-console.log(showLang(el));
