@@ -20,52 +20,34 @@ function showLang(el){
     return fetchLang(lang, words, places, place);
 };
 
-/* async function fetchLang(lang, words, places, place){
-    let response = await fetch('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+MY_KEY+'&text='+words+'&lang='+lang);
-    let data = await response.json();
-    place.innerText = places;
+async function fetchLang(){
+    let url = 'https://translate.yandex.net/api/v1.5/tr.json/translate?key='+MY_KEY+'&text='+words+'&lang='+lang;
 
-    return data;
+    let data = (await fetch(url).then(handleOk));
+   /*  let dataCatch = await (await fetch(url).catch(handleErr)).json();
+    if (dataCatch.code && dataCatch.code === 400 ){
+        return;
+    } */
+    
 }
-fetchLang(lang, words, places, place)
-    .then(
-        data => {
-        /* console.log(response.json()); 
-        data.json().then(
-            data => {
-                console.log(data.text[0]);
-                places = data.text[0];
-                console.log(place);
-            }
-        )
 
-    }
-    )
-    .catch(
-        () => {
-            console.log('Status Error');
+function handleOk(response){
+    response.json().then(
+        Mymessage => {
+            console.log(Mymessage.text[0]);
+            places = Mymessage.text[0];
+            place.innerText = places;
+            console.log(place);
         }
-    ) */
-
-function fetchLang(lang, words, places, place){
-    fetch('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+MY_KEY+'&text='+words+'&lang='+lang)
-.then(
-    response => {
-        /* console.log(response.json()); */
-        response.json().then(
-            data => {
-                console.log(data.text[0]);
-                places = data.text[0];
-                place.innerText = places;
-                console.log(place);
-            }
-        )
-
-    }
-)
-.catch(
-    () => {
-        console.log('Status Error');
-    }
-)
+    )
 }
+/* function handleErr(err){
+    console.warn(err);
+    let resp = new Response(
+        JSON.stringify({
+            code: 400,
+            message: "Status Errorf 1111111111111"
+        })
+    );
+    return resp;
+} */
